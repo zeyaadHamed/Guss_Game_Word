@@ -1,0 +1,74 @@
+@use '../color_word/maincolor' as colors;
+@mixin center {
+    text-align: center;
+    padding: 20px;
+    margin: 0 0 50px;
+    background-color: white;
+};
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+@mixin center-footer {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+}
+
+@mixin body_def {
+    margin: 0;
+    background-color: #EEE;
+    font-family: Arial, Helvetica, sans-serif;
+}
+@mixin set_opacity($opacity) {
+    opacity: $opacity;
+}
+@mixin input_style {
+    margin: 0 5px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 60px;
+    caret-color: var(--primary-color);
+    background-color: white;
+    border: none;
+    border-bottom: 3px solid #333;
+}
+
+@mixin yes-place {
+    background-color: #{colors.$yes-place};
+    border:#{colors.$yes-place} ;
+    color: #{colors.$alt_color} ;
+}
+@mixin not-place {
+    background-color: #{colors.$not-place};
+    border:#{colors.$not-place} ;
+    color: #{colors.$alt_color} ;
+}
+@mixin wrong-place {
+    background-color: #{colors.$wrong-place};
+    border:#{colors.$wrong-place} ;
+    color: #{colors.$alt_color} ;
+}
+@mixin buttons {
+    border: none;
+    font-size: 25px;
+    padding: 15px 20px;
+    border-radius: 6px;
+    color: #{colors.$alt_color};
+    cursor: pointer;
+    font-weight: bold;
+}
+@mixin circle ($value: 50%) {
+    border-radius: $value;
+}
+//write your size with px or rem or other
+@mixin fontSize($value: 18px) {
+    font-size: $value;
+}

@@ -1,0 +1,150 @@
+@use './mixian/mixian' as *;
+@use './color_word/maincolor' as colors;
+
+*{
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #{colors.$primary-color};
+    --alt-color: #{colors.$alt-color};
+}
+body {
+    @include body_def;
+}
+h1 {
+    @include center;
+}
+.guess-game {
+    text-align: center;
+    width: 1000px;
+    margin: 20px auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .game-area {
+        margin-bottom: 50px;
+        .pointer {
+            text-align: left;
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            width: fit-content;
+        
+        h3 {
+            margin: 0;
+        }
+        span {
+            position: relative;
+            bottom: -3px;
+            left: 5px;
+        }
+
+    }
+    .inputs {
+        > div {
+            @include center-flex;
+            margin-bottom: 20px;
+            span {
+                font-size: 30px;
+                margin-right: 15px;
+                font-weight: bold;
+            }
+        }
+        .disabled-inputs {
+            @include set_opacity(0.5);
+            pointer-events: none;
+        }
+        input {
+            @include input_style;
+            &:focus {
+                outline-color: #ccc;
+            }
+            &.yes-in-place {
+                @include yes-place;
+            }
+            &.not-in-place {
+                @include not-place;
+            }
+            &.no {
+                @include wrong-place;
+            }
+
+        }
+
+    }
+    .control {
+        @include center-flex;
+        width: 500px;
+        margin: 30px auto;
+        gap: 10px;
+        .check,
+        .hint {
+            @include buttons;
+        }
+        .check {
+            background-color: var(--primary-color);
+            color: var(--alt-color);
+            cursor: pointer;
+            font-weight: bold;
+            flex: 1;
+        }
+        .hint {
+            width: fit-content;
+            background-color: #{colors.$background};
+        }
+        button:disabled {
+            background-color: black;
+            @include set_opacity(0.4);
+            cursor: no-drop;
+            }
+        }
+    }
+        .key-colors {
+        .key-color {
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                background-color: var(--alt-color);
+                margin-bottom: 15px;
+            .key {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    &.in-place {
+                        background-color: #{colors.$yes-place};
+                    }
+                    &.not-in-place {
+                        background-color: #{colors.$not-place};
+                    }
+                    &.no {
+                        background-color: #{colors.$wrong-place};
+                    }
+                }
+                .key-text {
+                    @include fontSize(20px);
+                }
+            }
+        }
+        .massage {
+            text-align: center;
+            font-weight: bold;
+            @include fontSize(30px);
+            span{
+                font-weight: bold;
+                display: block;
+                @include fontSize(50px);
+                color: var(--primary-color);
+                text-transform: capitalize;
+                margin-top: 10px;
+            }
+            p {
+                margin-top: 15px;
+            }
+        }
+    }
+footer {
+    @include center-footer;
+}

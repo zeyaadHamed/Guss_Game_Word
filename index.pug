@@ -1,0 +1,36 @@
+doctype
+html(lang='en')
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="/sass/main.css")
+    title
+body
+    h1
+    .guess-game
+        .game-area
+            .pointer
+                h3 Pointer:
+                span
+            .inputs
+            .control
+                button.check Check Word
+                button.hint
+                   span
+                   |  Hint
+            .massage
+        .key-colors
+            h2 Key colors
+            .key-color
+                div(class= "key in-place")
+                div(class="key-text") Letter Is Correct And In Place
+            
+            .key-color
+                div(class= "key not-in-place")
+                div(class="key-text") Letter Is Correct But Not In Place
+            
+            .key-color
+                div(class= "key no")
+                div(class="key-text") Letter Is Wrong
+    footer
+    script(src="main.js")
